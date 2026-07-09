@@ -1,0 +1,10 @@
+com\example\mockito\Repository.class
+com\example\mockito\MockitoExercisesApplication.class
+com\example\mockito\MyFileWriter.class
+com\example\mockito\NetworkService.class
+com\example\mockito\FileService.class
+com\example\mockito\Service.class
+com\example\mockito\MyFileReader.class
+com\example\mockito\NetworkClient.class
+com\example\mockito\RestClient.class
+com\example\mockito\ApiService.class

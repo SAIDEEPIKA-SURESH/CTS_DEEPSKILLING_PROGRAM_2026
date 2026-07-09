@@ -1,0 +1,5 @@
+com\example\mockito\NetworkServiceTest.class
+com\example\mockito\ApiServiceTest.class
+com\example\mockito\ServiceTest.class
+com\example\mockito\FileServiceTest.class
+com\example\mockito\MultiReturnServiceTest.class

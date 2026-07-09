@@ -1,0 +1,16 @@
+12:04:30.591 [main] ERROR LoggingExample - This is an error message
+12:04:30.595 [main] WARN  LoggingExample - This is a warning message
+12:04:39.487 [main] INFO  ParameterizedLogging - User John is 25 years old
+12:04:39.495 [main] DEBUG ParameterizedLogging - User John has salary 50000.0
+12:04:39.496 [main] WARN  ParameterizedLogging - Warning for user John
+12:04:39.497 [main] ERROR ParameterizedLogging - Error occurred for user John
+12:06:34.136 [main] DEBUG AppenderExample - Debug message
+12:06:34.140 [main] INFO  AppenderExample - Info message
+12:06:34.142 [main] WARN  AppenderExample - Warning message
+12:06:34.142 [main] ERROR AppenderExample - Error message
+12:11:18.192 [main] DEBUG AppenderExample - Debug message
+12:11:18.208 [main] INFO  AppenderExample - Info message
+12:11:18.209 [main] WARN  AppenderExample - Warning message
+12:11:18.210 [main] ERROR AppenderExample - Error message
+12:11:54.079 [main] ERROR LoggingExample - This is an error message
+12:11:54.084 [main] WARN  LoggingExample - This is a warning message
