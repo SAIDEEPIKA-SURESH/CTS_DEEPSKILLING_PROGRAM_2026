@@ -1,0 +1,46 @@
+<div class="detail-container animate-fade-in">
+  <div class="back-link">
+    <a routerLink="/courses">← Back to Course Catalog</a>
+  </div>
+
+  <div *ngIf="course$ | async as course; else loading" class="detail-card glass-panel">
+    <div class="detail-header">
+      <span class="course-code">{{ course.code }}</span>
+      <h2>{{ course.name }}</h2>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-info-block">
+        <label>Course Identifier</label>
+        <p>ID #{{ course.id }}</p>
+      </div>
+      <div class="detail-info-block">
+        <label>Academic Credits</label>
+        <p>{{ course.credits }} Credits</p>
+      </div>
+      <div class="detail-info-block">
+        <label>Grade Status</label>
+        <p>
+          <span class="badge" [class.badge-success]="course.gradeStatus === 'passed'" [class.badge-danger]="course.gradeStatus === 'failed'" [class.badge-warning]="course.gradeStatus === 'pending'">
+            {{ course.gradeStatus }}
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <div class="detail-description">
+      <h3>Course Overview</h3>
+      <p>
+        Welcome to {{ course.name }}. This course explores theoretical foundations and practical applications associated with {{ course.code }}. 
+        Students will build projects, analyze structures, and complete hands-on activities to master the topic.
+      </p>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <div class="loading-state glass-panel">
+      <div class="spinner"></div>
+      <p>Fetching course details...</p>
+    </div>
+  </ng-template>
+</div>

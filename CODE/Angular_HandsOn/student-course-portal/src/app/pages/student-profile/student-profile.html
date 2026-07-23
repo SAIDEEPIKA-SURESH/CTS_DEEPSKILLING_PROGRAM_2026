@@ -1,0 +1,64 @@
+<div class="profile-container animate-fade-in">
+  <div class="profile-layout">
+    
+    <!-- Profile Info Card -->
+    <div class="profile-card glass-panel">
+      <div class="avatar-section">
+        <div class="avatar">👩‍💻</div>
+        <h3>{{ student.name }}</h3>
+        <p class="track">{{ student.track }}</p>
+      </div>
+
+      <div class="profile-details">
+        <div class="detail-row">
+          <span class="label">Student ID:</span>
+          <span class="value">{{ student.id }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Email:</span>
+          <span class="value">{{ student.email }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Academic Standing:</span>
+          <span class="value">{{ student.standing }}</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Cumulative GPA:</span>
+          <span class="value gpa-highlight">{{ student.gpa }} / 4.0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enrolled Courses Card -->
+    <div class="enrolled-courses-card glass-panel">
+      <h3>Active Course Enrollments</h3>
+      <p class="card-subtitle">These are the courses you have registered for in the current semester.</p>
+
+      <div *ngIf="enrolledCourses$ | async as courses" class="courses-list-container">
+        
+        <div *ngIf="courses.length > 0; else noEnrolled" class="courses-list">
+          <div *ngFor="let course of courses" class="enrolled-course-item animate-fade-in">
+            <div class="course-info">
+              <span class="course-code">{{ course.code }}</span>
+              <h4 class="course-name">{{ course.name }}</h4>
+              <span class="course-credits">{{ course.credits }} Credits</span>
+            </div>
+            <div class="course-actions">
+              <a [routerLink]="['/courses', course.id]" class="btn btn-secondary btn-sm">View Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <ng-template #noEnrolled>
+          <div class="empty-enrollments">
+            <span class="empty-icon">🎒</span>
+            <p>You are not enrolled in any courses yet.</p>
+            <button class="btn btn-primary" routerLink="/courses">Browse Catalog</button>
+          </div>
+        </ng-template>
+
+      </div>
+    </div>
+
+  </div>
+</div>

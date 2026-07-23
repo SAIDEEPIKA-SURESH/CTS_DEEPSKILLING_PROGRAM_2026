@@ -1,0 +1,59 @@
+<div class="courses-container animate-fade-in">
+  <div class="list-header glass-panel">
+    <h2>Available Courses</h2>
+    <p>Browse the course catalog, view details, and manage your enrollment status.</p>
+    
+    <div class="search-bar-row">
+      <input 
+        type="text" 
+        class="form-control search-input" 
+        placeholder="Filter by course name or code..." 
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="onSearchChange()"
+      />
+    </div>
+  </div>
+
+  <!-- Loading State using *ngIf -->
+  <div *ngIf="isLoading$ | async" class="loading-state glass-panel">
+    <div class="spinner"></div>
+    <p>Loading course catalog...</p>
+  </div>
+
+  <!-- Error State using *ngIf -->
+  <div *ngIf="error$ | async as error" class="error-state glass-panel">
+    <span class="error-icon">⚠️</span>
+    <p>{{ error }}</p>
+  </div>
+
+  <!-- Selection Notification -->
+  <div *ngIf="selectedCourseId" class="selection-indicator animate-fade-in">
+    <span>💡</span> Selected Course ID: <strong>{{ selectedCourseId }}</strong> (Updated via child events)
+  </div>
+
+  <!-- Course Grid with *ngIf else template -->
+  <div *ngIf="!(isLoading$ | async)">
+    <div *ngIf="filteredCourses.length > 0; else noCourses" class="course-grid">
+      <div 
+        *ngFor="let course of filteredCourses; trackBy: trackByCourseId" 
+        class="grid-item-wrapper"
+        (click)="navigateToDetail(course.id)"
+      >
+        <app-course-card 
+          [course]="course" 
+          [highlightColor]="'rgba(99, 102, 241, 0.05)'"
+          (enrollRequested)="onEnroll($event)"
+        ></app-course-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Courses Template -->
+  <ng-template #noCourses>
+    <div class="empty-state glass-panel">
+      <span class="empty-icon">📂</span>
+      <h3>No Courses Found</h3>
+      <p>Try refining your search query or check back later.</p>
+    </div>
+  </ng-template>
+</div>

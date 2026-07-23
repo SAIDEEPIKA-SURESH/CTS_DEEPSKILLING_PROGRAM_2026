@@ -1,0 +1,51 @@
+<div 
+  class="course-card-inner glass-panel" 
+  [appHighlight]="highlightColor"
+  [ngClass]="cardClasses"
+  [ngStyle]="{ 'border-left-color': course.gradeStatus === 'passed' ? '#10b981' : (course.gradeStatus === 'failed' ? '#ef4444' : '#64748b') }"
+>
+  <div class="card-header">
+    <span class="course-code">{{ course.code }}</span>
+    <span class="course-id">ID: {{ course.id }}</span>
+  </div>
+
+  <h3 class="course-name">{{ course.name }}</h3>
+  
+  <div class="card-meta">
+    <span class="credits-badge">{{ course.credits | creditLabel }}</span>
+    
+    <!-- Grade Status Badge using *ngSwitch -->
+    <div [ngSwitch]="course.gradeStatus" class="status-container">
+      <span *ngSwitchCase="'passed'" class="badge badge-success">Passed</span>
+      <span *ngSwitchCase="'failed'" class="badge badge-danger">Failed</span>
+      <span *ngSwitchCase="'pending'" class="badge badge-warning">Pending</span>
+      <span *ngSwitchDefault class="badge">Unknown</span>
+    </div>
+  </div>
+
+  <!-- Expanded Details Block using *ngIf -->
+  <div *ngIf="isExpanded" class="expanded-details animate-fade-in">
+    <p class="description">
+      This course provides in-depth learning of {{ course.name }}. Designed to cover foundational and advanced concepts.
+    </p>
+    <div class="prereqs">
+      <strong>Prerequisites:</strong> None
+    </div>
+    <div class="dept">
+      <strong>Department:</strong> Computer Science & Engineering
+    </div>
+  </div>
+
+  <div class="card-actions">
+    <button class="btn btn-secondary btn-sm" (click)="$event.stopPropagation(); toggleDetails()">
+      {{ isExpanded ? 'Hide Details' : 'Show Details' }}
+    </button>
+    <button 
+      class="btn btn-sm" 
+      [ngClass]="isEnrolled ? 'btn-danger' : 'btn-primary'"
+      (click)="$event.stopPropagation(); onEnrollToggle()"
+    >
+      {{ isEnrolled ? 'Unenroll' : 'Enroll' }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="notification-widget glass-panel">
+  <h4>Local Notification Scoped Service</h4>
+  <p class="scoping-note">This widget uses a separate, component-scoped instance of NotificationService.</p>
+  
+  <div class="notification-input-group">
+    <input 
+      #newMsg
+      type="text" 
+      class="form-control" 
+      placeholder="Type a notification message..." 
+      (keyup.enter)="addNotification(newMsg.value); newMsg.value=''"
+    />
+    <button class="btn btn-primary" (click)="addNotification(newMsg.value); newMsg.value=''">Add</button>
+  </div>
+
+  <div class="notification-list" *ngIf="notifications.length > 0; else noNotifs">
+    <div class="notification-item animate-fade-in" *ngFor="let note of notifications">
+      <span class="bell-icon">🔔</span> {{ note }}
+    </div>
+    <button class="btn btn-secondary btn-sm clear-btn" (click)="clear()">Clear All</button>
+  </div>
+
+  <ng-template #noNotifs>
+    <p class="no-notifs">No notifications in this scope.</p>
+  </ng-template>
+</div>

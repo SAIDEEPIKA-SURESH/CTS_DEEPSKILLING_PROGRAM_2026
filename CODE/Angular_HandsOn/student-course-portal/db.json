@@ -1,0 +1,47 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "Introduction to Computer Science",
+      "code": "CS101",
+      "credits": 3,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 2,
+      "name": "Advanced Data Structures & Algorithms",
+      "code": "CS201",
+      "credits": 4,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": 3,
+      "name": "Database Management Systems",
+      "code": "DB302",
+      "credits": 3,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 4,
+      "name": "Software Engineering Principles",
+      "code": "SE401",
+      "credits": 4,
+      "gradeStatus": "failed"
+    },
+    {
+      "id": 5,
+      "name": "Web Application Development",
+      "code": "WD202",
+      "credits": 3,
+      "gradeStatus": "pending"
+    }
+  ],
+  "students": [
+    {
+      "id": "DN-2026-FSD",
+      "name": "Sai Deepika",
+      "email": "sai.deepika@nurture.edu"
+    }
+  ],
+  "enrollments": []
+}

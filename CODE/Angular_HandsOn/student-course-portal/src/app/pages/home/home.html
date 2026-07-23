@@ -1,0 +1,76 @@
+<div class="home-container animate-fade-in">
+  <div class="hero-section glass-panel">
+    <h1>Welcome to the {{ portalName }}</h1>
+    <p class="subtitle">Your gateway to academic excellence and streamlined course management.</p>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-icon">📚</span>
+        <div class="stat-content">
+          <span class="stat-value">{{ coursesCount }}</span>
+          <span class="stat-label">Courses Available</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">✅</span>
+        <div class="stat-content">
+          <span class="stat-value">{{ enrolledCount }}</span>
+          <span class="stat-label">Enrolled Courses</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">⭐</span>
+        <div class="stat-content">
+          <span class="stat-value">{{ gpa }}</span>
+          <span class="stat-label">Current GPA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="interactive-section">
+    <!-- Enrollment Action Card -->
+    <div class="interactive-card glass-panel">
+      <h3>Quick Enrollment</h3>
+      <p>Enroll in your preferred courses instantly. Registration is active.</p>
+      
+      <div class="action-row">
+        <button class="btn btn-primary" [disabled]="!isPortalActive" (click)="onEnrollClick()">
+          Enroll Now
+        </button>
+        <button class="btn btn-secondary" routerLink="/courses">
+          Browse Courses
+        </button>
+      </div>
+      
+      @if (message) {
+        <div class="enrollment-message animate-fade-in">
+          <span class="message-icon">🔔</span> {{ message }}
+        </div>
+      }
+    </div>
+
+    <!-- Live Search Demo Card -->
+    <div class="interactive-card glass-panel">
+      <h3>Live Portal Search</h3>
+      <p>Enter search query to filter courses in real time.</p>
+      
+      <div class="form-group">
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="Search by course name or code..." 
+          [(ngModel)]="searchTerm"
+        />
+      </div>
+      
+      <div class="search-result">
+        @if (searchTerm) {
+          <p class="searching-text">Searching for: <span class="highlight-text">{{ searchTerm }}</span></p>
+        } @else {
+          <p class="placeholder-text">Type above to see live two-way binding</p>
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="courses-layout-container">
+  <main class="courses-main-content">
+    <router-outlet></router-outlet>
+  </main>
+  
+  <aside class="courses-sidebar">
+    <app-course-summary-widget></app-course-summary-widget>
+    
+    <div class="di-demo-section glass-panel">
+      <h3>DI Scope Demonstration</h3>
+      <p class="di-desc">Below are two separate instances of the NotificationComponent. Notice how adding/clearing notifications in one does not affect the other. This proves they have independent, component-scoped service instances.</p>
+    </div>
+    
+    <app-notification></app-notification>
+    <app-notification></app-notification>
+  </aside>
+</div>

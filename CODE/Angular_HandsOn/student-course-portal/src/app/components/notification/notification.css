@@ -1,0 +1,61 @@
+.notification-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.notification-widget h4 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.scoping-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.notification-input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.notification-item {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bell-icon {
+  animation: ring 2s ease infinite;
+  transform-origin: top;
+}
+
+@keyframes ring {
+  0%, 100% { transform: rotate(0); }
+  20%, 80% { transform: rotate(15deg); }
+  40%, 60% { transform: rotate(-15deg); }
+}
+
+.clear-btn {
+  align-self: flex-start;
+}
+
+.no-notifs {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 0.5rem 0;
+}

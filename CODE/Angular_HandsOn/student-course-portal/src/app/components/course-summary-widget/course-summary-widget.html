@@ -1,0 +1,10 @@
+<div class="summary-widget glass-panel">
+  <div class="summary-header">
+    <span class="widget-icon">📊</span>
+    <h4>Course Catalog Summary</h4>
+  </div>
+  <div class="summary-content" *ngIf="courses$ | async as courses">
+    <p>Total catalog courses: <strong>{{ courses.length }}</strong></p>
+    <p class="explanation">Any new additions, deletions, or filters are immediately reflected here, confirming that the state is shared globally (via NgRx Store).</p>
+  </div>
+</div>
